@@ -6,16 +6,22 @@ import { List } from '../components/List'
 import { Card } from '../components/Card'
 import { Controls } from '../components/Controls'
 import {
-	selectAllCountries,
 	selectCountriesInfo,
+	selectVisibleCountries,
 } from '../store/countries/countriesSelectors'
 import { loadCountries } from '../store/countries/countriesActions'
+import { selectControls } from '../store/controls/controlsSelectors'
 
 const HomePage = () => {
 	const navigate = useNavigate()
 
 	const dispatch = useDispatch()
-	const countries = useSelector(selectAllCountries)
+	// const countries = useSelector(selectAllCountries)
+
+	const { search, region } = useSelector(selectControls)
+	const countries = useSelector((state) =>
+		selectVisibleCountries(state, { search, region })
+	)
 	const { status, error, qty } = useSelector(selectCountriesInfo)
 
 	useEffect(() => {

@@ -6,6 +6,7 @@ import { IoMoon, IoMoonOutline } from 'react-icons/io5'
 
 import { Container } from './Container'
 import { setTheme } from '../store/theme/themeActions'
+import { clearControls } from '../store/controls/controlsActions'
 
 const HeaderEl = styled.header`
 	box-shadow: var(--shadow);
@@ -47,11 +48,13 @@ const Header = () => {
 	const toggleTheme = () =>
 		dispatch(setTheme(theme === 'light' ? 'dark' : 'light'))
 
+	const cleanUp = () => dispatch(clearControls())
+
 	return (
 		<HeaderEl>
 			<Container>
 				<Wrapper>
-					<Title>CountriesSPA</Title>
+					<Title onClick={cleanUp}>CountriesSPA</Title>
 					<ModeSwitcher onClick={toggleTheme}>
 						{theme === 'light' ? (
 							<IoMoonOutline size='14px' />
