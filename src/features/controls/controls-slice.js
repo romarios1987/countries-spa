@@ -5,7 +5,7 @@ const initialState = {
 	region: '',
 }
 
-const controlsSlice = createSlice({
+const controlSlice = createSlice({
 	name: '@@controls',
 	initialState,
 	reducers: {
@@ -19,8 +19,8 @@ const controlsSlice = createSlice({
 	},
 })
 
-export const { setSearch, setRegion, clearControls } = controlsSlice.actions
-export const controlReducer = controlsSlice.reducer
+export const { setSearch, setRegion, clearControls } = controlSlice.actions
+export const controlReducer = controlSlice.reducer
 
 // Selectors
 export const selectSearch = (state) => state.controls.search

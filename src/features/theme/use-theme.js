@@ -1,5 +1,5 @@
-import { useEffect, useDispatch } from 'react'
-import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { setTheme } from './theme-slice'
 
 export const useTheme = () => {
@@ -13,5 +13,5 @@ export const useTheme = () => {
 		document.body.setAttribute('data-theme', theme)
 	}, [theme])
 
-	return { theme, toggleTheme }
+	return [theme, toggleTheme]
 }
