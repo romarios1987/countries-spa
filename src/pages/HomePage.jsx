@@ -4,13 +4,14 @@ import { useEffect } from 'react'
 
 import { List } from '../components/List'
 import { Card } from '../components/Card'
-import { Controls } from '../components/Controls'
+// import { Controls } from '../components/Controls'
 import {
 	selectCountriesInfo,
 	selectVisibleCountries,
 } from '../store/countries/countriesSelectors'
 import { loadCountries } from '../store/countries/countriesActions'
 import { selectControls } from '../store/controls/controlsSelectors'
+import { Controls } from '../features/controls/Controls'
 
 const HomePage = () => {
 	const navigate = useNavigate()
