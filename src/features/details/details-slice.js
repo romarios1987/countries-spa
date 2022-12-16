@@ -1,9 +1,16 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 export const loadCountryByName = createAsyncThunk(
-	'@@countries/load-country',
+	'@@details/load-country',
 	async (name, { extra: { api, client } }) => {
 		return await client.get(api.searchByCountry(name))
+	}
+)
+
+export const loadNeighborsByBorder = createAsyncThunk(
+	'@@details/load-neighbors',
+	async (borders, { extra: { api, client } }) => {
+		return await client.get(api.filterByCode(borders))
 	}
 )
 
@@ -34,6 +41,12 @@ const detailsSlice = createSlice({
 				state.status = 'received'
 				state.error = null
 				state.currentCountry = action.payload.data[0]
+			})
+
+			.addCase(loadNeighborsByBorder.fulfilled, (state, action) => {
+				state.status = 'received'
+				state.error = null
+				state.neighbors = action.payload.data.map((country) => country.name)
 			})
 	},
 })

@@ -19,5 +19,5 @@ $ npm run start
 - [ReactJS](https://reactjs.org/)
 - [Styled Components](https://styled-components.com/)
 - [React Select](https://react-select.com/home)
-- [ReduxJS](https://redux.js.org/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
 - [React Icons](https://react-icons.github.io/react-icons)
