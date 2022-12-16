@@ -8,6 +8,7 @@ import * as api from './config'
 import { themeReducer } from './features/theme/theme-slice'
 import { controlReducer } from './features/controls/controls-slice'
 import { countryReducer } from './features/countries/countries-slice'
+import { detailsReducer } from './features/details/details-slice'
 
 const persistConfig = {
 	key: 'root',
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
 	theme: themeReducer,
 	controls: controlReducer,
 	countries: countryReducer,
+	details: detailsReducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
